@@ -1,7 +1,7 @@
 <?php
 $defaultNumberOfChoices = 1;
-$names = AppletInstance::getValue('names[]', array('1' => '') );
-$values = AppletInstance::getValue('values[]');
+$names = (array) AppletInstance::getValue('names[]', array('1' => '') );
+$values = (array) AppletInstance::getValue('values[]');
 ?>
 <div class="vbx-applet set-cookie">
 		<h2>Set Cookie</h2>

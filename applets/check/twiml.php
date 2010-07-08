@@ -1,12 +1,12 @@
 <?php
-session_name('OpenVBX-Plugin-Cookies');
-session_start();
+$number = 'voice' == AppletInstance::getFlowType() ? normalize_phone_to_E164($_REQUEST['Caller']) : normalize_phone_to_E164($_REQUEST['From']);
+$cookies = PluginData::get('cookies'.$number, new stdClass());
 
 $name = AppletInstance::getValue('name');
 $value = AppletInstance::getValue('value');
 $continue = false;
 
-if(!is_null($name)&&($value==$_SESSION[$name]||('not null'==strtolower($value)&&isset($_SESSION[$name]))||('null'==strtolower($value)&&!isset($_SESSION[$name]))))
+if(!is_null($name)&&($value==$cookies->$name]||('not null'==strtolower($value)&&isset($cookies->$name))||('null'==strtolower($value)&&!isset($cookies->$name))))
 	$continue = true;
 
 $response = new Response();
