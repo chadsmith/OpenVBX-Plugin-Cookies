@@ -6,7 +6,7 @@ $name = AppletInstance::getValue('name');
 $value = AppletInstance::getValue('value');
 $continue = false;
 
-if(!is_null($name)&&($value==$cookies->$name]||('not null'==strtolower($value)&&isset($cookies->$name))||('null'==strtolower($value)&&!isset($cookies->$name))))
+if(!is_null($name)&&($value==$cookies->$name||('not null'==strtolower($value)&&isset($cookies->$name))||('null'==strtolower($value)&&!isset($cookies->$name))))
 	$continue = true;
 
 $response = new Response();
